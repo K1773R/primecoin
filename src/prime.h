@@ -15,7 +15,7 @@
 /* POOL ADDON */
 /**************/
 
-static const unsigned int POOL_SHARE_MINIMUM = 7;
+extern unsigned int pool_share_minimum;
 extern size_t thread_num_max;
 
 class CBlockProvider {
@@ -25,6 +25,7 @@ public:
 	virtual CBlock* getBlock(unsigned int thread_id, unsigned int last_time) = 0;
 	virtual void submitBlock(CBlock* block) = 0;
 	virtual void forceReconnect() = 0;
+	virtual unsigned int GetAdjustedTimeWithOffset(unsigned int thread_id) = 0;
 };
 
 /**********************/
